@@ -1,0 +1,25 @@
+<section>
+    <div *ngIf="parameter.field_type ==='input'">
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{parameter.name}}</mat-label>
+            <input matInput [placeholder]="parameter.name" [(ngModel)]="parameter.value" (change)="changeValue()">
+        </mat-form-field>
+    </div>
+  <div *ngIf="parameter.field_type ==='slider'">
+      <div>
+      <mat-label>{{parameter.name}}</mat-label>
+      </div>
+      <mat-slider min="1" max="10" thumbLabel step="1" [(ngModel)]="parameter.value" aria-label="Select an option" (change)="changeValue()"></mat-slider>
+  </div>
+  <div *ngIf="parameter.field_type ==='radio_buttons'">
+      <div>
+      <label id="radioLabel">{{parameter.name}}</label>
+      </div>
+      <div>
+      <mat-radio-group aria-labelledby="radioLabel" label-position="after" [(ngModel)]="parameter.value" (change)="changeValue()">
+        <mat-radio-button value="Yes">Yes</mat-radio-button>
+        <mat-radio-button value="No">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+</section>
